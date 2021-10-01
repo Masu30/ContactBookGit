@@ -26,7 +26,7 @@ public class Main {
     public static final String CONTACT_REMOVED = "contactBook.Contact removed.";
     public static final String CONTACT_UPDATED = "contactBook.Contact updated.";
     public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
-    public static final String CONTACT_NOT_EXISTS = "Phone number does not exist";
+    public static final String CONTACT_NOT_EXISTS = "Phone number does not exist.";
     public static final String QUIT_MSG = "Goodbye!";
     public static final String COMMAND_ERROR = "Unknown command.";
     public static final String HAS_EQUAL_NUMBER = "There are contacts that share phone numbers.";
@@ -62,6 +62,9 @@ public class Main {
                     break;
                 case SEARCH_PHONE:
                     searchPhoneUser(in, cBook);
+                    break;
+                case EQUAL_PHONE_NR:
+                    hasEqualPhoneNr(cBook);
                     break;
                 default:
                     System.out.println(COMMAND_ERROR);
@@ -159,13 +162,12 @@ public class Main {
     }
 
     private static void hasEqualPhoneNr(ContactBook cBook) {
-        if (cBook.getNumberOfContacts() != 0) {
-            if (cBook.hasEqualNr()) {
+
+            if (cBook.hasEqualNr() && cBook.getNumberOfContacts() != 0 ) {
                 System.out.println(HAS_EQUAL_NUMBER);
             } else {
                 System.out.println(NO_EQUAL_NUMBER);
             }
-        } else System.out.println(BOOK_EMPTY);
     }
 
     private static void searchPhoneUser(Scanner in, ContactBook cBook) {
