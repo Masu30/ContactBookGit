@@ -158,18 +158,15 @@ public class Main {
         else System.out.println(BOOK_EMPTY);
     }
 
-    private static void hasEqualPhoneNr(ContactBook cBook){
+    private static void hasEqualPhoneNr(ContactBook cBook) {
         if (cBook.getNumberOfContacts() != 0) {
-            if (cBook.hasEqualNr())
-            {
+            if (cBook.hasEqualNr()) {
                 System.out.println(HAS_EQUAL_NUMBER);
-            } else{
+            } else {
                 System.out.println(NO_EQUAL_NUMBER);
             }
-        }
-
-        else System.out.println(BOOK_EMPTY);
-
+        } else System.out.println(BOOK_EMPTY);
+    }
 
     private static void searchPhoneUser(Scanner in, ContactBook cBook) {
         int phone;
